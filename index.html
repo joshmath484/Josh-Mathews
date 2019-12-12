@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head>
+
+ <script type="text/javascript">
+ <!--
+ function over() {
+ document.write ("Mouse Over");
+ }
+
+ function out() {
+ document.write ("Mouse Out");
+ }
+
+ //-->
+ </script>
+
+ </head>
+ <body>
+ <p>Bring your mouse inside the division to see the result:</p>
+
+ <div onmouseover="over()" onmouseout="out()">
+ <h2> This is inside the division </h2>
+ </div>
+	 <div id ="questions">
+            <h6>Question 1:</h6>
+            <p>What is your favorite color?</p>
+            <input type="radio" onchange="nextQuestion(this.value)" value=0>Red<br>
+            <input type="radio" onchange="nextQuestion(this.value)" value=1>Blue
+     </div>
+	<script>
+	 var questions = [ {"question":"Which game do you prefer", "ans1":"Zelda", "ans2":"Assassin's Creed", "val1": 1, "val2":0 }, {"question":"Why are you hear", "ans1":"Fun", "ans2":"Forced", "val1": 1, "val2":0 }, {"question":"How many friends do you have", "ans1":"Many", "ans2":"Little", "val1": 1, "val2":0 }, {"question":"Did you just fart?", "ans1":"Yes", "ans2":"No", "val1": 1, "val2":0 } ]
+
+ var questionNum= 0
+
+ var total = 0
+for(var i = 0; i < questions.length; i++){
+	nextQuestion;
+	questionNum + 1;
+}
+function nextQuestion(ans){
+total = total+ans;
+console.log(total)
+questionspot = document.querySelector("#questions")
+questString ="<h6>Question "+(questionNum + 2)+":</h6>"+
+"<p>"+questions[questionNum].question+"</p>"+
+"<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val1+">"+questions[questionNum].ans1+"<br>"+
+"<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val2+">"+questions[questionNum].ans2
+questionspot.innerHTML = questString
+questionNum++
+} 
+	</script>
+ </body>
+</html>
